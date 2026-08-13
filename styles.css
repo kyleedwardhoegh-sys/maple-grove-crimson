@@ -186,3 +186,11 @@ footer {
   font-size: 13px;
   color: var(--ink-muted);
 }
+footer p { margin: 0 0 8px; }
+footer p:last-child { margin-bottom: 0; }
+footer a {
+  color: var(--crimson-bright);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+footer a:hover, footer a:focus-visible { color: var(--gold); }
