@@ -1,0 +1,188 @@
+:root {
+  --crimson: #8c1927;
+  --crimson-deep: #4d0d16;
+  --crimson-bright: #b3273c;
+  --gold: #cda43c;
+  --gold-bright: #e8c468;
+  --paper: #f7f2e7;
+  --surface: #ffffff;
+  --ink: #241013;
+  --ink-muted: #6b5a56;
+  --border: #e4d9c5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #170c0f;
+    --surface: #221216;
+    --ink: #f3e9d8;
+    --ink-muted: #b8a89f;
+    --border: #3a2027;
+    --crimson-bright: #c9435a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(120% 140% at 50% -10%, var(--crimson-bright), var(--crimson) 45%, var(--crimson-deep) 100%);
+  color: #fbeee0;
+  text-align: center;
+  padding: 72px 24px 56px;
+}
+
+.leaf-field { position: absolute; inset: 0; pointer-events: none; }
+.drift {
+  position: absolute;
+  width: 46px; height: 46px;
+  fill: none;
+  stroke: rgba(232, 196, 104, 0.4);
+  stroke-width: 2.2;
+  animation: driftfall 16s linear infinite;
+}
+.drift-1 { left: 12%; top: -10%; animation-delay: 0s; }
+.drift-2 { left: 55%; top: -10%; width: 34px; height: 34px; animation-delay: 5s; animation-duration: 20s; }
+.drift-3 { left: 82%; top: -10%; width: 30px; height: 30px; animation-delay: 10s; animation-duration: 13s; }
+
+@keyframes driftfall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(115vh) rotate(200deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drift { animation: none; opacity: 0; }
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin: 0 0 18px;
+}
+
+h1 {
+  font-size: clamp(42px, 9vw, 76px);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 0.98;
+  text-transform: uppercase;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.mascot {
+  margin: 18px 0 34px;
+  font-size: 15px;
+  color: rgba(251, 238, 224, 0.75);
+  font-style: italic;
+}
+
+.cta {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--crimson-deep);
+  font-weight: 800;
+  font-size: 17px;
+  text-decoration: none;
+  padding: 16px 28px;
+  border-radius: 999px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.25);
+  transition: transform .15s ease, background .15s ease;
+}
+.cta:hover, .cta:focus-visible { background: var(--gold-bright); transform: translateY(-2px); }
+.cta:active { transform: translateY(0); }
+.cta-arrow { transition: transform .15s ease; }
+.cta:hover .cta-arrow { transform: translateX(3px); }
+
+/* ---------- Main content ---------- */
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-eyebrow {
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--crimson-bright);
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.philosophy {
+  margin-top: -34px;
+  position: relative;
+  z-index: 2;
+}
+
+.philosophy blockquote {
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--gold);
+  border-radius: 16px;
+  padding: 40px clamp(24px, 5vw, 52px);
+  box-shadow: 0 18px 40px rgba(76, 13, 22, 0.14);
+}
+
+.philosophy p {
+  font-family: Georgia, "Iowan Old Style", "Charter", serif;
+  font-style: italic;
+  font-size: clamp(18px, 3vw, 21px);
+  line-height: 1.65;
+  color: var(--ink);
+  margin: 0 0 20px;
+  text-wrap: pretty;
+}
+.philosophy p:last-child { margin-bottom: 0; }
+.philosophy em { color: var(--crimson); font-style: italic; }
+
+.expectations { margin: 64px 0 40px; }
+
+.coming-soon {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+  color: var(--ink-muted);
+  font-size: 15px;
+}
+.leaf-mark { width: 30px; height: 30px; flex: none; }
+.leaf-mark svg { width: 100%; height: 100%; fill: none; stroke: var(--gold); stroke-width: 3; }
+
+footer {
+  text-align: center;
+  padding: 32px 24px 48px;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
