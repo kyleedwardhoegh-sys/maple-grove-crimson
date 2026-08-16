@@ -191,6 +191,16 @@ main {
 }
 .philosophy p:last-child { margin-bottom: 0; }
 .philosophy em { color: var(--crimson); font-style: italic; }
+.philosophy cite {
+  display: block;
+  margin-top: 18px;
+  font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13.5px;
+  letter-spacing: 0.03em;
+  color: var(--ink-muted);
+}
 
 .leaf-mark { width: 30px; height: 30px; flex: none; }
 .leaf-mark svg { width: 100%; height: 100%; fill: none; stroke: var(--gold); stroke-width: 3; }
